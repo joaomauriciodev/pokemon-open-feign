@@ -1,6 +1,6 @@
 package com.joaomauriciodev.pokemon_open_feign.client;
 
-import com.joaomauriciodev.pokemon_open_feign.entities.Pokemon;
+import com.joaomauriciodev.pokemon_open_feign.entities.PokemonItem;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ public class PokemonListResponse {
     private int count;
     private String next;
     private String previous;
-    private List<Pokemon> results;
+    private List<PokemonItem> results;
 
     public PokemonListResponse() {
     }
@@ -37,11 +37,11 @@ public class PokemonListResponse {
         this.previous = previous;
     }
 
-    public List<Pokemon> getResults() {
+    public List<PokemonItem> getResults() {
         return results;
     }
 
-    public void setResults(List<Pokemon> results) {
+    public void setResults(List<PokemonItem> results) {
         this.results = results;
     }
 }

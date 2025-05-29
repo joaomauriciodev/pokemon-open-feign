@@ -2,12 +2,10 @@ package com.joaomauriciodev.pokemon_open_feign.controllers;
 
 import com.joaomauriciodev.pokemon_open_feign.client.PokemonClient;
 import com.joaomauriciodev.pokemon_open_feign.client.PokemonListResponse;
+import com.joaomauriciodev.pokemon_open_feign.entities.Pokemon;
 import com.joaomauriciodev.pokemon_open_feign.services.PokemonService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -30,5 +28,12 @@ public class PokemonController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("/pokemons/{id}")
+    public ResponseEntity<Pokemon> getPokemonById(
+            @PathVariable String id
+    ){
+        return ResponseEntity.ok(pokemonService.getPokemonById(id));
     }
 }
