@@ -1,6 +1,7 @@
 package com.joaomauriciodev.pokemon_open_feign.controllers;
 
 import com.joaomauriciodev.pokemon_open_feign.client.PokemonClient;
+import com.joaomauriciodev.pokemon_open_feign.client.PokemonListResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,9 @@ public class PokemonController {
     }
 
     @GetMapping("/pokemons")
-    public ResponseEntity<String> getAllPokemons() {
+    public ResponseEntity<PokemonListResponse> getAllPokemons(
+
+    ) {
         return ResponseEntity.ok(pokemonClient.getAllPokemons());
     }
 }
